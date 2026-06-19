@@ -13,6 +13,7 @@ from .notes import NoteName
 from .scales import Scale, ScaleType
 from .scales import ScaleFactory
 from .rhythm import NoteDuration
+from .melody_optimizer import MelodyOptimizer, HarmonyOptimizer
 
 
 class EmotionType(Enum):
@@ -42,6 +43,10 @@ class MelodyConfig:
     climax_position: float = 0.7           # 高潮位置
     use_dynamics: bool = True              # 使用力度变化
     duration_variety: float = 0.7          # 时值变化程度
+    enable_optimization: bool = True      # 启用旋律优化
+    use_harmony_optimization: bool = False  # 使用和声优化
+    smooth_transitions: bool = True       # 平滑音程过渡
+    emotion_consistency: bool = True       # 情感一致性
 
 
 @dataclass
@@ -258,29 +263,22 @@ class MarkovMelodyGenerator:
         return max(40, min(100, base_velocity + random.randint(-20, 20)))
     
     def _optimize_melody(self):
-        """优化旋律连贯性"""
-        # 修复大跳
-        for i in range(1, len(self.sequence)):
-            prev_state = self.sequence[i-1]
-            curr_state = self.sequence[i]
-            
-            leap = abs(curr_state.note.value - prev_state.note.value)
-            if leap > self.config.max_leap:
-                # 找到最近的音阶内音符
-                curr_state.note = self._find_closest_note(
-                    curr_state.note.value, prev_state.note.value
-                )
+        """优化旋律连贯性 - 使用新的优化器"""
+        if not self.config.enable_optimization:
+            return
         
-        # 确保高潮位置的高音
-        climax_step = int(self.config.length * self.config.climax_position)
-        if climax_step < len(self.sequence):
-            climax_state = self.sequence[climax_step]
-            if climax_state.note.value <= 7:  # 不是高音
-                # 提高到音阶内较高音符
-                high_notes = [note for note in self.config.scale.notes if note.value > 7]
-                if high_notes:
-                    climax_state.note = random.choice(high_notes)
-                    climax_state.velocity = min(127, climax_state.velocity + 20)
+        # 创建优化器
+        melody_optimizer = MelodyOptimizer(self.config.scale, self.config.max_leap)
+        
+        # 应用优化
+        self.sequence = melody_optimizer.optimize_sequence(self.sequence)
+        
+        # 如果启用和声优化，应用和声优化
+        if self.config.use_harmony_optimization:
+            harmony_optimizer = HarmonyOptimizer(self.config.scale)
+            # 简单的I-IV-V和弦进行
+            chord_progression = [0, 5, 7, 0]  # C-F-G-C
+            self.sequence = harmony_optimizer.optimize_for_harmony(self.sequence, chord_progression)
     
     def _find_closest_note(self, target: int, reference: int) -> NoteName:
         """寻找最近的音阶内音符"""
@@ -347,8 +345,18 @@ class MelodyTrainer:
 
 # 便利函数
 def generate_melody(emotion: str = "happy", length: int = 32, 
-                   start_note: str = "C") -> List[MelodyState]:
-    """快速生成旋律的便利函数"""
+                   start_note: str = "C", enable_optimization: bool = True,
+                   use_harmony_optimization: bool = False, smooth_transitions: bool = True) -> List[MelodyState]:
+    """快速生成旋律的便利函数
+    
+    Args:
+        emotion: 情感类型 (happy, sad, mysterious, epic, peaceful, dark, bright, chinese, blues)
+        length: 旋律长度
+        start_note: 起始音符
+        enable_optimization: 是否启用旋律优化
+        use_harmony_optimization: 是否使用和声优化
+        smooth_transitions: 是否使用平滑过渡
+    """
     
     # 解析情感
     emotion_map = {
@@ -376,7 +384,11 @@ def generate_melody(emotion: str = "happy", length: int = 32,
         scale=scale,
         emotion=emotion_type,
         length=length,
-        start_note=start_note_obj
+        start_note=start_note_obj,
+        enable_optimization=enable_optimization,
+        use_harmony_optimization=use_harmony_optimization,
+        smooth_transitions=smooth_transitions,
+        emotion_consistency=True
     )
     
     generator = MarkovMelodyGenerator(config)
