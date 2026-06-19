@@ -47,13 +47,16 @@ class MIDIGenerator:
         if volume is None:
             volume = self.config.volume
 
+        # 将0.0-1.0的volume转换为0-127的MIDI力度值
+        midi_volume = int(float(volume) * 127)
+        
         self.midi_file.addNote(
             self.config.channel,
             self.config.instrument,
             pitch,
             int(self.current_time),
             float(duration),
-            float(volume)
+            midi_volume
         )
 
     def _note_to_pitch(self, note: Union[str, NoteName]) -> int:
