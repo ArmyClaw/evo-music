@@ -1,0 +1,523 @@
+{
+  "timestamp": "20260621_031008",
+  "config": {
+    "population_size": 30,
+    "generations": 50,
+    "elite_ratio": 0.1,
+    "mutation_rate": 0.1,
+    "convergence_threshold": 0.001,
+    "stagnation_generations": 20,
+    "emotion": "happy",
+    "scale_type": "major",
+    "length": 32
+  },
+  "evolution_history": [
+    {
+      "generation": 0,
+      "best_fitness": 78.12854262672812,
+      "avg_fitness": 75.28523008807629,
+      "diversity": 0.002691774393691093,
+      "best_fitness_ever": 78.12854262672812,
+      "stagnation_counter": 0
+    }
+  ],
+  "results": {
+    "best_fitness_ever": 78.12854262672812,
+    "total_generations": 1,
+    "converged": false
+  },
+  "best_individual_genes": {
+    "pitch_genes": [
+      {
+        "note": "C",
+        "octave": 5,
+        "degree": 0,
+        "position": 0.0
+      },
+      {
+        "note": "C",
+        "octave": 5,
+        "degree": 0,
+        "position": 0.03125
+      },
+      {
+        "note": "F",
+        "octave": 4,
+        "degree": 0,
+        "position": 0.0625
+      },
+      {
+        "note": "G",
+        "octave": 4,
+        "degree": 0,
+        "position": 0.09375
+      },
+      {
+        "note": "B",
+        "octave": 5,
+        "degree": 0,
+        "position": 0.125
+      },
+      {
+        "note": "G",
+        "octave": 4,
+        "degree": 0,
+        "position": 0.15625
+      },
+      {
+        "note": "B",
+        "octave": 4,
+        "degree": 0,
+        "position": 0.1875
+      },
+      {
+        "note": "B",
+        "octave": 3,
+        "degree": 0,
+        "position": 0.21875
+      },
+      {
+        "note": "D",
+        "octave": 4,
+        "degree": 0,
+        "position": 0.25
+      },
+      {
+        "note": "G",
+        "octave": 5,
+        "degree": 0,
+        "position": 0.28125
+      },
+      {
+        "note": "B",
+        "octave": 4,
+        "degree": 0,
+        "position": 0.3125
+      },
+      {
+        "note": "A",
+        "octave": 3,
+        "degree": 0,
+        "position": 0.34375
+      },
+      {
+        "note": "B",
+        "octave": 3,
+        "degree": 0,
+        "position": 0.375
+      },
+      {
+        "note": "D",
+        "octave": 5,
+        "degree": 0,
+        "position": 0.40625
+      },
+      {
+        "note": "E",
+        "octave": 5,
+        "degree": 0,
+        "position": 0.4375
+      },
+      {
+        "note": "F",
+        "octave": 4,
+        "degree": 0,
+        "position": 0.46875
+      },
+      {
+        "note": "A",
+        "octave": 3,
+        "degree": 0,
+        "position": 0.5
+      },
+      {
+        "note": "B",
+        "octave": 5,
+        "degree": 0,
+        "position": 0.53125
+      },
+      {
+        "note": "B",
+        "octave": 3,
+        "degree": 0,
+        "position": 0.5625
+      },
+      {
+        "note": "E",
+        "octave": 4,
+        "degree": 0,
+        "position": 0.59375
+      },
+      {
+        "note": "A",
+        "octave": 4,
+        "degree": 0,
+        "position": 0.625
+      },
+      {
+        "note": "F",
+        "octave": 4,
+        "degree": 0,
+        "position": 0.65625
+      },
+      {
+        "note": "E",
+        "octave": 4,
+        "degree": 0,
+        "position": 0.6875
+      },
+      {
+        "note": "F",
+        "octave": 4,
+        "degree": 0,
+        "position": 0.71875
+      },
+      {
+        "note": "A",
+        "octave": 4,
+        "degree": 0,
+        "position": 0.75
+      },
+      {
+        "note": "B",
+        "octave": 4,
+        "degree": 0,
+        "position": 0.78125
+      },
+      {
+        "note": "F",
+        "octave": 4,
+        "degree": 0,
+        "position": 0.8125
+      },
+      {
+        "note": "F",
+        "octave": 3,
+        "degree": 0,
+        "position": 0.84375
+      },
+      {
+        "note": "C",
+        "octave": 3,
+        "degree": 0,
+        "position": 0.875
+      },
+      {
+        "note": "G",
+        "octave": 3,
+        "degree": 0,
+        "position": 0.90625
+      },
+      {
+        "note": "F",
+        "octave": 3,
+        "degree": 0,
+        "position": 0.9375
+      },
+      {
+        "note": "E",
+        "octave": 4,
+        "degree": 0,
+        "position": 0.96875
+      }
+    ],
+    "rhythm_genes": [
+      {
+        "duration": 0.25,
+        "position": 0.0,
+        "beat_strength": 0.8
+      },
+      {
+        "duration": 0.5,
+        "position": 0.03125,
+        "beat_strength": 0.8
+      },
+      {
+        "duration": 0.5,
+        "position": 0.0625,
+        "beat_strength": 0.8
+      },
+      {
+        "duration": 0.375,
+        "position": 0.09375,
+        "beat_strength": 0.8
+      },
+      {
+        "duration": 0.25,
+        "position": 0.125,
+        "beat_strength": 0.8
+      },
+      {
+        "duration": 0.25,
+        "position": 0.15625,
+        "beat_strength": 0.8
+      },
+      {
+        "duration": 0.5,
+        "position": 0.1875,
+        "beat_strength": 0.8
+      },
+      {
+        "duration": 0.125,
+        "position": 0.21875,
+        "beat_strength": 0.8
+      },
+      {
+        "duration": 0.5,
+        "position": 0.25,
+        "beat_strength": 0.8
+      },
+      {
+        "duration": 0.125,
+        "position": 0.28125,
+        "beat_strength": 0.8
+      },
+      {
+        "duration": 0.375,
+        "position": 0.3125,
+        "beat_strength": 0.8
+      },
+      {
+        "duration": 0.375,
+        "position": 0.34375,
+        "beat_strength": 0.8
+      },
+      {
+        "duration": 0.25,
+        "position": 0.375,
+        "beat_strength": 0.8
+      },
+      {
+        "duration": 0.125,
+        "position": 0.40625,
+        "beat_strength": 0.8
+      },
+      {
+        "duration": 0.375,
+        "position": 0.4375,
+        "beat_strength": 0.8
+      },
+      {
+        "duration": 0.25,
+        "position": 0.46875,
+        "beat_strength": 0.8
+      },
+      {
+        "duration": 0.5,
+        "position": 0.5,
+        "beat_strength": 0.8
+      },
+      {
+        "duration": 0.5,
+        "position": 0.53125,
+        "beat_strength": 0.8
+      },
+      {
+        "duration": 0.5,
+        "position": 0.5625,
+        "beat_strength": 0.8
+      },
+      {
+        "duration": 0.125,
+        "position": 0.59375,
+        "beat_strength": 0.8
+      },
+      {
+        "duration": 0.5,
+        "position": 0.625,
+        "beat_strength": 0.7988605481253698
+      },
+      {
+        "duration": 0.125,
+        "position": 0.65625,
+        "beat_strength": 0.8
+      },
+      {
+        "duration": 0.375,
+        "position": 0.6875,
+        "beat_strength": 0.8
+      },
+      {
+        "duration": 0.5,
+        "position": 0.71875,
+        "beat_strength": 0.8
+      },
+      {
+        "duration": 0.375,
+        "position": 0.75,
+        "beat_strength": 0.8
+      },
+      {
+        "duration": 0.25,
+        "position": 0.78125,
+        "beat_strength": 0.8
+      },
+      {
+        "duration": 0.375,
+        "position": 0.8125,
+        "beat_strength": 0.8
+      },
+      {
+        "duration": 0.375,
+        "position": 0.84375,
+        "beat_strength": 0.8
+      },
+      {
+        "duration": 0.25,
+        "position": 0.875,
+        "beat_strength": 0.8
+      },
+      {
+        "duration": 0.375,
+        "position": 0.90625,
+        "beat_strength": 0.8
+      },
+      {
+        "duration": 0.25,
+        "position": 0.9375,
+        "beat_strength": 0.8
+      },
+      {
+        "duration": 0.5,
+        "position": 0.96875,
+        "beat_strength": 0.8
+      }
+    ],
+    "dynamic_genes": [
+      {
+        "velocity": 87,
+        "accent": 1.0
+      },
+      {
+        "velocity": 89,
+        "accent": 1.0
+      },
+      {
+        "velocity": 77,
+        "accent": 1.0
+      },
+      {
+        "velocity": 93,
+        "accent": 1.0
+      },
+      {
+        "velocity": 80,
+        "accent": 1.0
+      },
+      {
+        "velocity": 70,
+        "accent": 1.0
+      },
+      {
+        "velocity": 76,
+        "accent": 1.0
+      },
+      {
+        "velocity": 107,
+        "accent": 1.0
+      },
+      {
+        "velocity": 82,
+        "accent": 1.0
+      },
+      {
+        "velocity": 110,
+        "accent": 1.0
+      },
+      {
+        "velocity": 107,
+        "accent": 1.0
+      },
+      {
+        "velocity": 89,
+        "accent": 1.0
+      },
+      {
+        "velocity": 108,
+        "accent": 1.0
+      },
+      {
+        "velocity": 82,
+        "accent": 1.0
+      },
+      {
+        "velocity": 93,
+        "accent": 1.0
+      },
+      {
+        "velocity": 101,
+        "accent": 1.0
+      },
+      {
+        "velocity": 85,
+        "accent": 1.0
+      },
+      {
+        "velocity": 98,
+        "accent": 1.0
+      },
+      {
+        "velocity": 100,
+        "accent": 1.0
+      },
+      {
+        "velocity": 82,
+        "accent": 1.0
+      },
+      {
+        "velocity": 81,
+        "accent": 1.0
+      },
+      {
+        "velocity": 82,
+        "accent": 1.0
+      },
+      {
+        "velocity": 96,
+        "accent": 1.0
+      },
+      {
+        "velocity": 100,
+        "accent": 1.0
+      },
+      {
+        "velocity": 110,
+        "accent": 1.0
+      },
+      {
+        "velocity": 109,
+        "accent": 1.0
+      },
+      {
+        "velocity": 95,
+        "accent": 1
+      },
+      {
+        "velocity": 105,
+        "accent": 1.0
+      },
+      {
+        "velocity": 71,
+        "accent": 1.0
+      },
+      {
+        "velocity": 93,
+        "accent": 1.0
+      },
+      {
+        "velocity": 79,
+        "accent": 1.0
+      },
+      {
+        "velocity": 74,
+        "accent": 1.0
+      }
+    ],
+    "fitness": 78.12854262672812,
+    "generation": 2,
+    "parent_ids": [
+      136973392038944,
+      136973391977344
+    ]
+  }
+}
