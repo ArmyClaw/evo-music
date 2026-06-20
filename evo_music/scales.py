@@ -140,6 +140,10 @@ class Scale:
                 note = get_note_from_interval(self.root_note, interval)
                 self.notes.append(note)
     
+    def get_notes(self) -> List[NoteName]:
+        """获取音阶的音符列表"""
+        return self.notes
+    
     def get_note_at_position(self, position: int) -> Optional[NoteName]:
         """获取音阶中指定位置的音"""
         if 0 <= position < len(self.notes):
@@ -258,6 +262,9 @@ class ScaleFactory:
             notes=[],
             description=f"{scale_type.replace('_', ' ')}音阶"
         )
+        
+        # 手动调用__post_init__以生成音符列表
+        scale.__post_init__()
         
         return scale
     

@@ -1,0 +1,133 @@
+#!/usr/bin/env python3
+"""
+演示和声编排功能
+"""
+
+import sys
+import os
+
+# 添加项目路径
+sys.path.append(os.path.join(os.path.dirname(__file__), '.'))
+
+from evo_music.harmony_arranger import HarmonyArranger, HarmonyConfig
+from evo_music.scales import ScaleFactory, ScaleType
+from evo_music.notes import NoteName
+
+
+def demo_harmony_arrangement():
+    """演示和声编排功能"""
+    print("🎵 开始和声编排演示...")
+    
+    # 创建配置
+    config = HarmonyConfig(
+        style="pop",
+        chord_density=0.3,
+        voice_leading=True,
+        use_inversions=True,
+        extensions_level=1,
+        bass_walk=False,
+        pad_voices=1
+    )
+    
+    # 创建和声编排器
+    arranger = HarmonyArranger(config)
+    
+    # 创建调式（C大调）
+    scale_factory = ScaleFactory()
+    c_major = scale_factory.create_scale(NoteName.C, ScaleType.MAJOR)
+    
+    # 示例旋律
+    melody_notes = [
+        (60, 2),  # C4, 2拍
+        (64, 1),  # E4, 1拍
+        (67, 1),  # G4, 1拍
+        (60, 2),  # C4, 2拍
+        (62, 1),  # D4, 1拍
+        (64, 1),  # E4, 1拍
+        (60, 2),  # C4, 2拍
+        (65, 1),  # F4, 1拍
+        (67, 1),  # G4, 1拍
+        (60, 2),  # C4, 2拍
+    ]
+    
+    print(f"🎼 输入旋律：{len(melody_notes)} 个音符")
+    for i, (note, duration) in enumerate(melody_notes):
+        note_name = get_note_name(note)
+        print(f"  音符 {i+1}: {note_name} ({duration} 拍)")
+    
+    print("\n🔧 开始生成和声...")
+    
+    # 生成和声编排
+    result = arranger.arrange_harmony_for_melody(melody_notes, c_major)
+    
+    # 显示结果
+    print("\n🎹 生成的和声编排结果：")
+    print(f"  和弦风格: {config.style}")
+    print(f"  和弦密度: {config.chord_density}")
+    print(f"  扩展音级别: {config.extensions_level}")
+    
+    print("\n🎵 和弦进行：")
+    for i, chord_info in enumerate(result["chord_progression"]):
+        chord = chord_info["chord"]
+        measure = chord_info["measure"]
+        print(f"  小节 {measure+1}: {chord.name}")
+    
+    print("\n🎼 各声部音符：")
+    
+    # 和声声部
+    if "harmony" in result["harmony_voices"]:
+        print("  和声声部:")
+        for i, (note, duration) in enumerate(result["harmony_voices"]["harmony"]):
+            note_name = get_note_name(note)
+            print(f"    {note_name} ({duration} 拍)")
+    
+    # 低音声部
+    if "bass" in result["harmony_voices"]:
+        print("  低音声部:")
+        for i, (note, duration) in enumerate(result["harmony_voices"]["bass"]):
+            note_name = get_note_name(note)
+            print(f"    {note_name} ({duration} 拍)")
+    
+    # 垫底声部
+    for i in range(config.pad_voices):
+        if f"pad_{i}" in result["harmony_voices"]:
+            print(f"  垫底声部 {i+1}:")
+            for j, (note, duration) in enumerate(result["harmony_voices"][f"pad_{i}"]):
+                note_name = get_note_name(note)
+                print(f"    {note_name} ({duration} 拍)")
+    
+    print("\n🎯 旋律分析：")
+    analysis = result["melody_analysis"]
+    print(f"  音域范围: {analysis['pitch_range']} 半音")
+    print(f"  关键音符数: {len(analysis['climax_notes'])}")
+    print(f"  平均时值: {analysis['average_duration']:.1f} 拍")
+    
+    return result
+
+
+def get_note_name(note_value: int) -> str:
+    """将音符数值转换为音符名称"""
+    note_names = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B']
+    octave = note_value // 12 - 1
+    note_name = note_names[note_value % 12]
+    return f"{note_name}{octave}"
+
+
+def main():
+    """主函数"""
+    print("🎵 和声自动编排系统演示")
+    print("=" * 50)
+    
+    try:
+        result = demo_harmony_arrangement()
+        print("\n✅ 和声编排演示成功！")
+        return True
+    except Exception as e:
+        print(f"\n❌ 和声编排演示失败: {e}")
+        import traceback
+        traceback.print_exc()
+        return False
+
+
+if __name__ == "__main__":
+    main()
