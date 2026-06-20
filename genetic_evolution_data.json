@@ -1,0 +1,82 @@
+{
+  "evolution_history": [
+    {
+      "generation": 0,
+      "best_fitness": 90.29205357142857,
+      "avg_fitness": 88.58137677611367,
+      "worst_fitness": 82.13421802995391,
+      "diversity": 0.004294737546279618
+    },
+    {
+      "generation": 1,
+      "best_fitness": 90.30142857142857,
+      "avg_fitness": 88.95125729646698,
+      "worst_fitness": 85.84276497695852,
+      "diversity": 0.0019011375978644509
+    },
+    {
+      "generation": 2,
+      "best_fitness": 90.3630357142857,
+      "avg_fitness": 88.45738128840246,
+      "worst_fitness": 81.61798099078341,
+      "diversity": 0.003369023575396794
+    },
+    {
+      "generation": 3,
+      "best_fitness": 90.3630357142857,
+      "avg_fitness": 88.30471155692426,
+      "worst_fitness": 84.79659562211981,
+      "diversity": 0.002288284699969262
+    },
+    {
+      "generation": 4,
+      "best_fitness": 90.66953917050691,
+      "avg_fitness": 88.39236919162826,
+      "worst_fitness": 85.03949020737326,
+      "diversity": 0.0028292801447632803
+    },
+    {
+      "generation": 5,
+      "best_fitness": 90.66953917050691,
+      "avg_fitness": 88.8921222158218,
+      "worst_fitness": 86.57707085253458,
+      "diversity": 0.0014764858038767428
+    },
+    {
+      "generation": 6,
+      "best_fitness": 90.66953917050691,
+      "avg_fitness": 89.43661122311828,
+      "worst_fitness": 86.09601526497696,
+      "diversity": 0.0012333943144912536
+    },
+    {
+      "generation": 7,
+      "best_fitness": 90.66953917050691,
+      "avg_fitness": 88.7299210829493,
+      "worst_fitness": 83.48507488479262,
+      "diversity": 0.002713331210342489
+    },
+    {
+      "generation": 8,
+      "best_fitness": 90.66953917050691,
+      "avg_fitness": 88.80635282258065,
+      "worst_fitness": 83.19403225806452,
+      "diversity": 0.0029138777924831334
+    }
+  ],
+  "parameters": {
+    "population_size": 30,
+    "generations": 20,
+    "elite_ratio": 0.1,
+    "mutation_rate": 0.1
+  },
+  "report": {
+    "total_generations": 9,
+    "best_fitness_ever": 90.66953917050691,
+    "avg_fitness_final": 88.80635282258065,
+    "elite_ratio": 0.1,
+    "mutation_rate": 0.1,
+    "population_size": 30,
+    "convergence_achieved": true
+  }
+}

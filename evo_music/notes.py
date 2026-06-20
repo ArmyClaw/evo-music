@@ -24,16 +24,15 @@ class NoteName(Enum):
     @property
     def value_str(self) -> str:
         """返回音符字符串表示"""
-        if self.value == 1:
-            return "C#"
-        elif self.value == 3:
-            return "D#"
-        elif self.value == 6:
-            return "F#"
-        elif self.value == 8:
-            return "G#"
-        elif self.value == 10:
-            return "A#"
+        sharp_mapping = {
+            1: "C#",
+            3: "D#", 
+            6: "F#",
+            8: "G#",
+            10: "A#"
+        }
+        if self.value in sharp_mapping:
+            return sharp_mapping[self.value]
         else:
             return self.name
     
