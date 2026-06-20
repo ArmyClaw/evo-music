@@ -12,6 +12,7 @@ sys.path.append(os.path.join(os.path.dirname(__file__), '.'))
 from evo_music.harmony_arranger import HarmonyArranger, HarmonyConfig, HarmonyStyle
 from evo_music.scales import ScaleFactory, ScaleType
 from evo_music.melody import EmotionType
+from evo_music.notes import NoteName
 
 
 def test_harmony_arrangement():
@@ -34,7 +35,7 @@ def test_harmony_arrangement():
     
     # 创建调式（C大调）
     scale_factory = ScaleFactory()
-    c_major = scale_factory.create_scale(ScaleType.MAJOR, 0)  # C大调
+    c_major = scale_factory.create_scale(NoteName.C, ScaleType.MAJOR)  # C大调
     
     # 示例旋律：简单的主旋律
     melody_notes = [
@@ -129,7 +130,7 @@ def test_different_emotions():
         
         # 创建调式
         scale_factory = ScaleFactory()
-        c_major = scale_factory.create_scale(ScaleType.MAJOR, 0)
+        c_major = scale_factory.create_scale(NoteName.C, ScaleType.MAJOR)
         
         # 生成和声
         result = arranger.arrange_harmony_for_melody(melody_notes, c_major)
@@ -166,7 +167,7 @@ def create_demo_midi():
         
         # 生成和声
         scale_factory = ScaleFactory()
-        c_major = scale_factory.create_scale(ScaleType.MAJOR, 0)
+        c_major = scale_factory.create_scale(NoteName.C, ScaleType.MAJOR)
         result = arranger.arrange_harmony_for_melody(melody_notes, c_major)
         
         # 创建MIDI文件
