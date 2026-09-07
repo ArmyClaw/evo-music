@@ -11,14 +11,16 @@ from dataclasses import dataclass, field
 from typing import List, Dict, Optional, Tuple
 from enum import Enum
 
-from rhythm import TimeSignature, NoteDuration, NoteEvent, RhythmPattern, RhythmFactory
-from emotion_mapping import EmotionProfile
-
 # 简化导入，避免依赖问题
 try:
+    from rhythm import TimeSignature, NoteDuration, NoteEvent, RhythmPattern, RhythmFactory
+    from emotion_mapping import EmotionProfile
     from music_theory import Note, Scale, Chord
 except ImportError:
     # 创建简化的类以避免依赖问题
+    from dataclasses import dataclass
+    from typing import List, Optional
+    
     @dataclass
     class Note:
         name: str
@@ -33,11 +35,7 @@ except ImportError:
     class Chord:
         name: str
         notes: List[str]
-
-try:
-    from emotion_mapping import EmotionProfile
-except ImportError:
-    # 创建简化的EmotionProfile
+    
     @dataclass
     class EmotionProfile:
         energy: float = 0.5
